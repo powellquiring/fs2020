@@ -1,3 +1,4 @@
+/*
 variable "iaas_classic_username" {
   description = "Enter the user name to access IBM Cloud classic infrastructure. You can retrieve the user name by following the instructions for retrieving your classic infrastructure API key."
 }
@@ -9,6 +10,7 @@ variable "iaas_classic_api_key" {
 variable "ibmcloud_api_key" {
   description = "Enter your IBM Cloud API Key, you can get your IBM Cloud API key using: https://cloud.ibm.com/iam#/apikeys"
 }
+*/
 
 variable "ibmcloud_region" {
   description = "Enter your preferred IBM Cloud region to use for your infrastructure"
@@ -16,9 +18,11 @@ variable "ibmcloud_region" {
 }
 
 provider "ibm" {
+  /*
   iaas_classic_username = "${var.iaas_classic_username}"
   iaas_classic_api_key  = "${var.iaas_classic_api_key}"
   ibmcloud_api_key      = "${var.ibmcloud_api_key}"
+  */
   generation            = 2
   region                = "${var.ibmcloud_region}"
 }
