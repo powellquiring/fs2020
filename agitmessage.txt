@@ -1,0 +1,24 @@
+Removed variable vpc1_cidr it is not used
+
+resource "ibm_is_security_group_rule" "sg1_tcp_rule_22" {
+  depends_on = ["ibm_is_floating_ip.floatingip1", "ibm_is_floating_ip.floatingip2"]
+  Are you sure these depends_on are needed?
+  All the depends in main.tf can be removed
+
+These are not used so should not be required
+    iaas_classic_username = "${var.iaas_classic_username}"
+    iaas_classic_api_key  = "${var.iaas_classic_api_key}"
+    ibmcloud_api_key      = "${var.ibmcloud_api_key}"Consider:
+
+Not needed for schematics execution:
+    ibmcloud_api_key      = "${var.ibmcloud_api_key}"
+
+Why are some varilables in the provider.tf file?
+
+ssh public/prvate key pair needs to be created in advance, include the url that describes this.
+
+At end of task3 explain how to test the resources
+
+Consider:
+- Use image name instead of ID.  Image IDs are region specific.
+- Not using the default vpc SG
