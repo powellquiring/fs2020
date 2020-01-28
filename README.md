@@ -41,7 +41,7 @@ Within the project, there are various files in which you will need to have famil
 
 - **provider.tf** - Setup for the IBM Provider as well as the required credentials to be used.
 - **variables.tf** - Holds the variables and possible default values to be used for the plan.
-- **main.td** - This file holds the majority of the resources to be created, including the VPC and virtual instances.
+- **main.tf** - This file holds the majority of the resources to be created, including the VPC and virtual instances.
 - **lb.tf** - This file holds the Load Balancer resource as well as defining the pool members. 
 - **cloud-init-apptier.tf** - This file contains the Cloud-Init script to be used for each virtual instance to install a simple nginx service.
 - **outputs.tf** - This file contains the output varibales that we want to see when the plan is executed and completed. 
