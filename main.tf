@@ -9,8 +9,6 @@ data "ibm_is_ssh_key" "ssh1" {
   name = "${var.ssh_public_key}"
 }
 
-resource 
-
 resource "ibm_is_vpc" "vpc1" {
   name = "${var.vpc_name}"
 }
