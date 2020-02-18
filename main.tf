@@ -1,7 +1,15 @@
+/*
 resource "ibm_is_ssh_key" "ssh1" {
   name       = "ssh1"
   public_key = "${var.ssh_public_key}"
 }
+*/
+
+data "ibm_is_ssh_key" "ssh1" {
+  name = "${var.ssh_public_key}"
+}
+
+resource 
 
 resource "ibm_is_vpc" "vpc1" {
   name = "${var.vpc_name}"
@@ -62,7 +70,8 @@ resource "ibm_is_instance" "instance1" {
   }
   vpc  = "${ibm_is_vpc.vpc1.id}"
   zone = "${var.zone1}"
-  keys = ["${ibm_is_ssh_key.ssh1.id}"]
+  # keys = ["${ibm_is_ssh_key.ssh1.id}"]
+  keys = ["${data.ibm_is_ssh_key.ssh1.id}"]
   user_data = "${data.template_cloudinit_config.cloud-init-apptier.rendered}"
 }
 
@@ -76,7 +85,8 @@ resource "ibm_is_instance" "instance2" {
   }
   vpc  = "${ibm_is_vpc.vpc1.id}"
   zone = "${var.zone2}"
-  keys = ["${ibm_is_ssh_key.ssh1.id}"]
+  # keys = ["${ibm_is_ssh_key.ssh1.id}"]
+  keys = ["${data.ibm_is_ssh_key.ssh1.id}"]
   user_data = "${data.template_cloudinit_config.cloud-init-apptier.rendered}"
 }
 
@@ -90,7 +100,8 @@ resource "ibm_is_instance" "instance3" {
   }
   vpc  = "${ibm_is_vpc.vpc1.id}"
   zone = "${var.zone3}"
-  keys = ["${ibm_is_ssh_key.ssh1.id}"]
+  # keys = ["${ibm_is_ssh_key.ssh1.id}"]
+  keys = ["${data.ibm_is_ssh_key.ssh1.id}"]
   user_data = "${data.template_cloudinit_config.cloud-init-apptier.rendered}"
 }
 
